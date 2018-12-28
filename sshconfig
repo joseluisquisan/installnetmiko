@@ -1,0 +1,38 @@
+#!/usr/bin/env python
+
+from netmiko import ConnectHandler
+from datetime import datetime
+from datetime import date
+
+today = str(date.today())
+hostname = (today +"_FW_Transantiago.txt")
+
+#Datos del Dispositivo
+cisco_asa = {
+    'device_type': 'cisco_asa',
+    'ip': '10.251.11.11',
+    'username': '*********',
+    'password': '************',
+    'secret': '************',
+    'verbose': False,
+}
+
+#Listado de Comandos a ejecutar
+commands = [
+    'copy startup-config tftp:',
+    '10.250.2.73',
+    hostname,
+]
+
+#Toma del tiempo inicial del Script
+start_time = datetime.now()
+#Inicio del Script
+net_connect = ConnectHandler(**cisco_asa)
+net_connect.enable()
+output = net_connect.send_config_set(commands)
+
+print output
+end_time = datetime.now()
+total_time = end_time - start_time
+print ("Tiempo total del Script " + str(total_time))
+print ("La Fecha de hoy es " + today)
