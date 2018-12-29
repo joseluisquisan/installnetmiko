@@ -11,9 +11,9 @@ hostname = (today +"_FW_Transantiago.txt")
 cisco_asa = {
     'device_type': 'cisco_asa',
     'ip': '10.251.11.11',
-    'username': '*********',
-    'password': '************',
-    'secret': '************',
+    'username': '********',
+    'password': '***********',
+    'secret': '*************',
     'verbose': False,
 }
 
