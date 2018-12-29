@@ -12,8 +12,8 @@ for line in f:
     iosv_l2 = {
         'device_type': 'cisco_ios',
         'ip': hostname,
-        'username': 'metroadmin',
-        'password': 'M3Tr0SO!8#',
+        'username': '***********',
+        'password': '***********',
         "global_delay_factor": .2,
     }
 
